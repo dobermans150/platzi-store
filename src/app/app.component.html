@@ -1,16 +1,14 @@
 <input type="text" [(ngModel)]="title" />
 
 {{ title }}
-<app-product></app-product>
-
 
 <div *ngIf="title === 'christian'">Este es un div</div>
 
 <button (click)="addItem()">Add Item</button>
 
 <div [ngSwitch]="title">
-  <p *ngSwitchCase ="'Barbara'">Esta es Barbara</p>
-  <p *ngSwitchCase ="'Paola'">Esta es Paola</p>
+  <p *ngSwitchCase="'Barbara'">Esta es Barbara</p>
+  <p *ngSwitchCase="'Paola'">Esta es Paola</p>
   <p *ngSwitchDefault>no hay match</p>
 </div>
 
@@ -21,11 +19,12 @@
   </li>
 </ul>
 
-
-
-<div *ngFor="let product of products">
-  {{ product.title }}
-  <img [src]="product.image" alt="" />
-  {{product.price}}
+<div class="product-list">
+  <!-- para recibir datos desde un componente hijo se utiliza los parentecis () y el nombre del evento emitido por el componente hijo -->
+  <!-- mientras que para transmitir datos a nuestro componente hijo, usamos los corchetes []  entre ellosel nombre de la propiedad para recibir -->
+  <app-product
+    *ngFor="let product of products"
+    (productClicked)="clickProduct($event)"
+    [product]="product"
+  ></app-product>
 </div>
-

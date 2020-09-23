@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Product} from './product.model'
+import { Product } from './product.model';
 
 @Component({
   selector: 'app-root',
@@ -62,5 +62,9 @@ export class AppComponent {
 
   deleteItem(index: number): void {
     this.items.splice(index, 1);
+  }
+
+  clickProduct(id: number) {
+    console.log(id);
   }
 }
