@@ -5,8 +5,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  OnChanges,
-  SimpleChanges,
   OnInit,
   DoCheck,
   OnDestroy,

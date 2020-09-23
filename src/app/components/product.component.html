@@ -1,4 +1,8 @@
-<h3>{{ product.title }}</h3>
-<img [src]="product.image" alt="" />
-<strong>{{ product.price }}</strong>
-<button (click)="addCart()" >Agregar al carrito</button>
+<div class="product-image">
+  <img [src]="product.image" alt="" />
+</div>
+<div class="product-detail">
+  <h3>{{ product.title }}</h3>
+  <strong>$ {{ product.price }}</strong>
+  <button class="product-button" (click)="addCart()">Agregar al carrito</button>
+</div>
