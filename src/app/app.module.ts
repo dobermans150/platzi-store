@@ -6,9 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ProductComponent} from './components/product.component';
 import { CartComponent } from './cart/cart.component';
+import { ExponentialPipe } from './pipes/exponential.pipe';
+import { HighlightDirective } from './directive/highlight.directive';
 
 @NgModule({
-  declarations: [AppComponent, ProductComponent, CartComponent],
+  declarations: [AppComponent, ProductComponent, CartComponent, ExponentialPipe, HighlightDirective],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

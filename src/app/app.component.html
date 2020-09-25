@@ -1,10 +1,14 @@
 <input type="text" [(ngModel)]="title" />
 
 {{ title }}
+<button (click)="addItem()">Add Item</button>
+<input type="text" [(ngModel)]="power" />
+
+{{power | exponential}}
 
 <div *ngIf="title === 'christian'">Este es un div</div>
 
-<button (click)="addItem()">Add Item</button>
+
 
 <div [ngSwitch]="title">
   <p *ngSwitchCase="'Barbara'">Esta es Barbara</p>
