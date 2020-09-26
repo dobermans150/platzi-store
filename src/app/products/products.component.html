@@ -1,0 +1,9 @@
+<div class="product-list">
+    <!-- para recibir datos desde un componente hijo se utiliza los parentecis () y el nombre del evento emitido por el componente hijo -->
+    <!-- mientras que para transmitir datos a nuestro componente hijo, usamos los corchetes []  entre ellosel nombre de la propiedad para recibir -->
+    <app-product
+      *ngFor="let product of products"
+      (productClicked)="clickProduct($event)"
+      [product]="product"
+    ></app-product>
+  </div>
