@@ -12,6 +12,10 @@ import {ProductsComponent} from './products/products.component';
 import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { BannerComponent } from './banner/banner.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -24,7 +28,11 @@ import { DemoComponent } from './demo/demo.component';
     ProductsComponent,
     HomeComponent,
     ContactComponent,
-    DemoComponent
+    DemoComponent,
+    HeaderComponent,
+    FooterComponent,
+    BannerComponent,
+    PageNotFoundComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
