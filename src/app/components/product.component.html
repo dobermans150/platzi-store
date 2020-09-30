@@ -7,5 +7,6 @@
   <p>{{today | date: 'MMM dd yyyy, HH:mm zz' }}</p>
   <strong>{{ product.price | currency }}</strong>
   <button class="product-button" (click)="addCart()">Agregar al carrito</button>
+  <a [routerLink]="['/products/', product.id]">Ver detalle</a>
 </div>
 
