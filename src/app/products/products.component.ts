@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
-import { ProductsService } from '../services/products.service';
+import { ProductsService } from '../core/services/products/products.service';
 
 @Component({
   selector: 'app-products',
@@ -15,8 +15,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.products = this.productService.getAllProducts();
   }
-
-  
 
   clickProduct(id: number): void {
     console.log(id);
