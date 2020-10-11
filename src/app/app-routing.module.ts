@@ -22,9 +22,7 @@ const routes: Routes = [
       {
         path: 'products',
         loadChildren: () =>
-          import('./products/products.module').then(
-            (m) => m.ProductsModule
-          ),
+          import('./products/products.module').then((m) => m.ProductsModule),
       },
       {
         path: 'products/:id',
@@ -36,9 +34,7 @@ const routes: Routes = [
       {
         path: 'contact',
         loadChildren: () =>
-          import('./contact/contact.module').then(
-            (m) => m.ContactModule
-          ),
+          import('./contact/contact.module').then((m) => m.ContactModule),
       },
     ],
   },
