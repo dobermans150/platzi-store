@@ -1,12 +1,37 @@
-<div class="product-image">
-  <img [src]="product.image" alt="" />
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h3>{{ product.title | uppercase }}</h3>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <strong>{{ product.price | currency }}</strong>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <div class="crop-image">
+    <img [src]="product.image" alt="" />
+  </div>
+  <mat-card-content>
+    <p>{{ product.description | slice: 0:20 }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button [routerLink]="['/products/', product.id]"
+      >Ver detalle</a
+    >
+    <button
+      class="product-button"
+      (click)="addCart()"
+      mat-flat-button
+      color="primary"
+    >
+      Agregar al carrito
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<!-- <div class="product-image">
 </div>
 <div class="product-detail">
-  <h3>{{ product.title | uppercase }}</h3>
-  <p>{{product.description | slice:0:20}}</p>
-  <p>{{today | date: 'MMM dd yyyy, HH:mm zz' }}</p>
-  <strong>{{ product.price | currency }}</strong>
-  <button class="product-button" (click)="addCart()">Agregar al carrito</button>
-  <a [routerLink]="['/products/', product.id]">Ver detalle</a>
-</div>
-
+  <p>{{ today | date: "MMM dd yyyy, HH:mm zz" }}</p>
+  
+  
+</div> -->
