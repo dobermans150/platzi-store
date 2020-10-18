@@ -1,0 +1,31 @@
+footer{
+    min-height: 30%;
+    background-color: #3f51b5;
+    max-width: 100%;
+    margin: 0px;
+}
+
+button{
+    margin: 12px;
+    background-color: #fff !important;
+    color: #000000 !important;
+    height: 65px;
+    width: 65px;
+}
+
+.row{
+    display: flex !important;
+}
+
+.mat-card{
+    background-color: inherit;
+    color: #ffffff;
+    border: none;
+    box-shadow: none;
+}
+
+.mat-card p{
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}

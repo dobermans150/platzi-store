@@ -13,7 +13,7 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts();
+    this.productService.getAllProducts().forEach( product => this.products = [...product]);
     console.log(this.productService.getProduct('1'));
   }
 
