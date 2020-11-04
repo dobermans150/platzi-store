@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  products: 'https://platzi-store.herokuapp.com/products',
+
 };

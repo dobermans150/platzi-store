@@ -19,4 +19,17 @@ export class ProductsService {
   getProduct(id: string): Observable<Product> {
     return this.http.get<Product>(`${this.urlProduct}/${id}`);
   }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.urlProduct, product);
+  }
+
+  updateProduct(id: string, changes: Partial<Product>): Observable<Product> {
+    return this.http.put<Product>(`${this.urlProduct}/${id}`, changes);
+  }
+
+  deleteProduct(id: string): Observable<boolean>{
+    return this.http.delete<boolean>(`${this.urlProduct}/${id}`);
+
+  }
 }
