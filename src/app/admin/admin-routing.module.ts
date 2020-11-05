@@ -5,12 +5,18 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { NavComponent } from './components/nav/nav.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 const routes: Routes = [
   {
     path: '',
     component: NavComponent,
     children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
       {
         path: 'create',
         component: ProductFormComponent,
@@ -22,6 +28,10 @@ const routes: Routes = [
        {
         path: 'home',
         component: AdminHomeComponent,
+      },
+      {
+        path: 'products',
+        component: ProductListComponent,
       },
     ],
   },
