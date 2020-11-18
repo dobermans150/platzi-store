@@ -11,6 +11,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
     InventoryComponent,
     AdminHomeComponent,
     ProductListComponent,
+    FormProductComponent,
   ],
   imports: [
     CommonModule,

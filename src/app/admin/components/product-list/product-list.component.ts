@@ -23,8 +23,11 @@ export class ProductListComponent implements OnInit {
   }
 
   deleteProduct(id: string): void {
-    this.productsService.deleteProduct(id).subscribe((response) => {
-      this.fetchroducts();
+    this.productsService.deleteProduct(id).subscribe(() => {
+      const productList = this.products.filter((product) => product.id !== id);
+
+      this.products = productList;
+      console.log(productList, this.products);
     });
   }
 }
