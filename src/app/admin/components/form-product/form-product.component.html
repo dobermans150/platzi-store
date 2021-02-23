@@ -31,14 +31,23 @@
               formControlName="price"
               matInput
               type="number"
+              
             />
+            <mat-error  *ngIf="getError('price', 'price_invalid')">
+              Ingrese un monto valido
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col-sx">
           <mat-form-field>
-            <input formControlName="image" matInput type="text" />
+            <input
+              placeholder="Imagen"
+              formControlName="image"
+              matInput
+              type="text"
+            />
           </mat-form-field>
         </div>
       </div>
@@ -55,7 +64,7 @@
         </div>
       </div>
       <mat-card-actions>
-        <button mat-raised-button type="submit">Guardar</button>
+        <button [disabled] = "form.invalid" mat-raised-button type="submit">Guardar</button>
       </mat-card-actions>
     </mat-card-content>
   </mat-card>
