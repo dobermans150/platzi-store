@@ -12,6 +12,7 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
+import { FormProductEditComponent } from './components/form-product-edit/form-product-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormProductComponent } from './components/form-product/form-product.com
     AdminHomeComponent,
     ProductListComponent,
     FormProductComponent,
+    FormProductEditComponent,
   ],
   imports: [
     CommonModule,

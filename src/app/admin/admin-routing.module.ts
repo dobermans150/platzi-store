@@ -7,6 +7,7 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
+import { FormProductEditComponent } from './components/form-product-edit/form-product-edit.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
         path: 'inventory',
         component: InventoryComponent,
       },
-       {
+      {
         path: 'home',
         component: AdminHomeComponent,
       },
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: 'products/create',
         component: FormProductComponent,
+      },
+      {
+        path: 'products/edit/:id',
+        component: FormProductEditComponent,
       },
     ],
   },
