@@ -9,7 +9,8 @@ import {
   DoCheck,
   OnDestroy,
 } from '@angular/core';
-import { Product } from '../../../product.model';
+import { Product } from '../../../core/models/product.model';
+import { CartService } from '../../../core/services/cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -22,7 +23,7 @@ export class ProductComponent implements DoCheck, OnInit, OnDestroy {
 
   today = new Date();
 
-  constructor() {
+  constructor(private cartService: CartService) {
     console.log('constructor');
   }
 
@@ -32,21 +33,21 @@ export class ProductComponent implements DoCheck, OnInit, OnDestroy {
   }
  */
   ngOnInit(): void {
-    console.log('OnInit');
+    /* console.log('OnInit'); */
   }
 
   ngDoCheck(): void {
-    console.log('DoCheck');
+    /* console.log('DoCheck'); */
   }
 
   ngOnDestroy(): void {
-    console.log('OnDestroy');
+    /* console.log('OnDestroy'); */
   }
 
   addCart(): void {
     console.log('añador al carrito');
-
+    this.cartService.addCart(this.product);
     /* .emit() emite el dato que queramos al componente padre, esto seria en React un hook pasado por props */
-    this.productClicked.emit(this.product.id);
+    /* this.productClicked.emit(this.product.id); */
   }
 }
