@@ -7,7 +7,17 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
   constructor(private angularFireAuth: AngularFireAuth) {}
 
-  createUser(email, password): Promise<firebase.default.auth.UserCredential> {
+  createUser(
+    email: string,
+    password: string
+  ): Promise<firebase.default.auth.UserCredential> {
     return this.angularFireAuth.createUserWithEmailAndPassword(email, password);
+  }
+
+  login(
+    email: string,
+    password: string
+  ): Promise<firebase.default.auth.UserCredential> {
+    return this.angularFireAuth.signInWithEmailAndPassword(email, password);
   }
 }
