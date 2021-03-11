@@ -26,9 +26,14 @@ export class LoginComponent implements OnInit {
 
     if (this.form.valid) {
       const { email, password } = this.form.value;
-      this.authService.login(email, password);
+      this.authService.login(email, password).then(() => {
+        this.router.navigate(['/admin']).catch(() => {
+          alert('usuario no valido5');
+        });
+      });
     }
   }
+
 
   private buildForm(): void {
     this.form = this.formBuilder.group({
