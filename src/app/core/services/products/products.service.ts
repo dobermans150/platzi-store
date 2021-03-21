@@ -3,7 +3,8 @@ import { Product } from '../../models/product.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, retry } from 'rxjs/operators';
+import * as Sentry from '@sentry/angular';
 
 interface User {
   email: string;
@@ -53,6 +54,7 @@ export class ProductsService {
 
   getRandomUsers(): Observable<User[]> {
     return this.http.get('https://ra2ndomuser.me/api/?results=2').pipe(
+      retry(3),
       catchError((error) => this.handleError(error)),
       map((response: any) => response.results as User[])
     );
@@ -60,6 +62,7 @@ export class ProductsService {
 
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.log(error);
+    Sentry.captureException(error);
     return throwError('ups algo salio mal');
   }
 }

@@ -17,7 +17,19 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
+import * as Sentry from '@sentry/angular';
+
 import { environment } from 'src/environments/environment';
+
+Sentry.init({
+  dsn:
+    'https://e8086dea36004549b437d815c3632880@o555787.ingest.sentry.io/5685897',
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
 
 @NgModule({
   declarations: [
@@ -37,7 +49,7 @@ import { environment } from 'src/environments/environment';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

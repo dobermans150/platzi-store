@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private angularFireAuth: AngularFireAuth) {}
+  constructor(
+    private angularFireAuth: AngularFireAuth,
+    private http: HttpClient
+  ) {}
 
   createUser(
     email: string,
@@ -26,7 +30,14 @@ export class AuthService {
     return this.angularFireAuth.signOut();
   }
 
-  hasUser() {
+  hasUser(): Observable<firebase.default.User> {
     return this.angularFireAuth.authState;
+  }
+
+  loginRestApi(email: string, password: string): any {
+    return this.http.post('https://platzi-store.herokuapp.com/auth', {
+      email,
+      password,
+    });
   }
 }
