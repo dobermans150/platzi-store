@@ -22,8 +22,9 @@ export class ProductsContainer implements OnInit {
   }
 
   fetchProducts(): void {
-    this.productService
-      .getAllProducts()
-      .subscribe((products) => (this.products = products));
+    this.productService.getAllProducts().subscribe(
+      (products) => (this.products = products),
+      (error) => console.error(error)
+    );
   }
 }
