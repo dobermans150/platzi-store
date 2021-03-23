@@ -5,11 +5,12 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
+import { TokenService } from './core/services/token.service';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private tokenService: TokenService) {}
 
   intercept(
     request: HttpRequest<any>,
@@ -20,8 +21,10 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private addToken(request: HttpRequest<any>): HttpRequest<any> {
-    const token = '123';
-    if (true) {
+    const token: string = this.tokenService.getToken();
+    console.log(token);
+
+    if (token) {
       request = request.clone({
         setHeaders: {
           token,
