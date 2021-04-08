@@ -4,7 +4,7 @@ import { DemoComponent } from './demo/demo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 
-import { AdminGuard } from "./shared/guards/admin.guard";
+import { AdminGuard } from './shared/guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -68,9 +68,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadAllModules,
-    relativeLinkResolution: 'legacy'
-}),
+      preloadingStrategy: PreloadAllModules,
+      relativeLinkResolution: 'legacy',
+    }),
   ],
   exports: [RouterModule],
 })
