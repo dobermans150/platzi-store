@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductsContainer } from './containers/products/products.container';
+import { ProductDetailComponent } from '../product-detail/components/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
     path: '',
     component: ProductsContainer,
+  },
+  {
+    path: ':id',
+    component: ProductDetailComponent,
   },
 ];
 

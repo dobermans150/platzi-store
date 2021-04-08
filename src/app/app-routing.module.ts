@@ -4,6 +4,7 @@ import { DemoComponent } from './demo/demo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 
+import { PreloadService } from './core/services/preload.service';
 import { AdminGuard } from './shared/guards/admin.guard';
 
 const routes: Routes = [
@@ -20,19 +21,21 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () =>
           import('./home/home.module').then((m) => m.HomeModule),
+        data: { preload: true },
       },
       {
         path: 'products',
         loadChildren: () =>
           import('./products/products.module').then((m) => m.ProductsModule),
+        data: { preload: true },
       },
-      {
+      /* {
         path: 'products/:id',
         loadChildren: () =>
           import('./product-detail/product-detail.module').then(
             (m) => m.ProductDetailModule
           ),
-      },
+      }, */
       {
         path: 'contact',
         loadChildren: () =>
@@ -68,7 +71,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules,
+      preloadingStrategy: PreloadService,
       relativeLinkResolution: 'legacy',
     }),
   ],
