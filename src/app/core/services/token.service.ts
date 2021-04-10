@@ -1,16 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService {
-  constructor() {}
+  // tslint:disable-next-line: variable-name
+  constructor(@Inject(DOCUMENT) private _doc: Document) {}
 
   public saveToken(token: string): void {
-    localStorage.setItem('token', token);
+    this.getWindow().localStorage.setItem('token', token);
   }
 
   public getToken(): string {
-    return localStorage.getItem('token');
+    return this.getWindow().localStorage.getItem('token');
+  }
+  getWindow(): Window | null {
+    return this._doc.defaultView;
   }
 }
