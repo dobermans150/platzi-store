@@ -21,6 +21,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
+import { QuicklinkModule } from 'ngx-quicklink';
+
 import * as Sentry from '@sentry/angular';
 
 import { environment } from 'src/environments/environment';
@@ -54,6 +56,7 @@ Sentry.init({
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule,
+    QuicklinkModule
   ],
   providers: [
     {
