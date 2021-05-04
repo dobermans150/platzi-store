@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MaterialModule } from '../material/material.module';
 import { QuicklinkModule } from 'ngx-quicklink';
+import { FibonacciPipe } from './pipes/fibonacci.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { QuicklinkModule } from 'ngx-quicklink';
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
+    FibonacciPipe,
   ],
   exports: [
     ExponentialPipe,
@@ -23,6 +25,7 @@ import { QuicklinkModule } from 'ngx-quicklink';
     HeaderComponent,
     FooterComponent,
     ReactiveFormsModule,
+    FibonacciPipe,
   ],
   imports: [CommonModule, RouterModule, MaterialModule, QuicklinkModule],
 })

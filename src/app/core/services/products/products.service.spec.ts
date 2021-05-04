@@ -9,7 +9,7 @@ import { environment } from '../../../../environments/environment';
 import { ProductsService } from './products.service';
 
 describe('ProductsService', () => {
-  let { products } = environment;
+  const { products } = environment;
 
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
