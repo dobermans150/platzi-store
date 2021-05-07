@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -9,8 +10,8 @@ declare var gtag;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  constructor(private router: Router) {
+export class AppComponent implements OnInit {
+  constructor(private router: Router, private swUpdate: SwUpdate) {
     const navEndEvents$ = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd)
     );
@@ -20,6 +21,15 @@ export class AppComponent {
         page_path: event.urlAfterRedirects,
         page_title: event.urlAfterRedirects,
       });
+    });
+  }
+  ngOnInit(): void {
+    this.updatePWA();
+  }
+  updatePWA(): void {
+    this.swUpdate.available.subscribe((value) => {
+      console.log('update', value);
+      window.location.reload();
     });
   }
 }
