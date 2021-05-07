@@ -1,9 +1,9 @@
 {
   "name": "platzi Store",
   "short_name": "platzi Store",
-  "theme_color": "#BBBB",
-  "background_color": "#FCFCFC",
-  "display": "fullscreen",
+  "theme_color": "#3f51b5",
+  "background_color": "#3f51b5",
+  "display": "standalone",
   "scope": "./",
   "start_url": "./",
   "icons": [

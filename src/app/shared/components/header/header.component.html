@@ -6,10 +6,18 @@
         <a mat-button routerLink="/products" routerLinkActive="active"
           >Products</a
         >
-        <a mat-button routerLink="/contact" routerLinkActive="active">contacts</a>
+        <a mat-button routerLink="/contact" routerLinkActive="active"
+          >contacts</a
+        >
+        <a *ngIf="installEvent" (click)="installByUser()" mat-button>install App</a>
       </nav>
       <!-- | async es una subscripcion desde la vista, es util al momento de usar observables -->
-      <a routerLink ="/order" mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn">
+      <a
+        routerLink="/order"
+        mat-raised-button
+        [matBadge]="total$ | async"
+        matBadgeColor="warn"
+      >
         <mat-icon>shopping_cart</mat-icon>
         carrito
       </a>
