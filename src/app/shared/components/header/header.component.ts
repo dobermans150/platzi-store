@@ -39,6 +39,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /* Listener para el propmt de instalacion de nuestra aplicacion */
   @HostListener('window:beforeinstallprompt', ['$event'])
   onBeforeInstallPrompt(event: Event): void {
     console.log(event);
@@ -46,6 +47,7 @@ export class HeaderComponent implements OnInit {
     this.installEvent = event;
   }
 
+  /* Funcion de instalaicon automatica de la aplicaicon. */
   installByUser(): void {
     if (this.installEvent) {
       this.installEvent.prompt();
