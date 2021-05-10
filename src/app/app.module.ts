@@ -21,7 +21,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import {AngularFirestoreModule} from '@angular/fire/firestore'
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { QuicklinkModule } from 'ngx-quicklink';
 
