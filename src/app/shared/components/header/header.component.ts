@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CartService } from '../../../core/services/cart/cart.service';
 
 import { map } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   total$: Observable<number>;
-
+  installEvent = null;
 
   /* Usamos pipe para transformar el valor del de la subscripicon */
   /* En este caso lo que hacemos es hacer un contador y que este sea un observable. */
@@ -38,4 +38,22 @@ export class HeaderComponent implements OnInit {
   */
 
   ngOnInit(): void {}
+
+  /* Listener para el propmt de instalacion de nuestra aplicacion */
+  @HostListener('window:beforeinstallprompt', ['$event'])
+  onBeforeInstallPrompt(event: Event): void {
+    console.log(event);
+    event.preventDefault();
+    this.installEvent = event;
+  }
+
+  /* Funcion de instalaicon automatica de la aplicaicon. */
+  installByUser(): void {
+    if (this.installEvent) {
+      this.installEvent.prompt();
+      this.installEvent.userChoice.then((rta) => {
+        console.log(rta);
+      });
+    }
+  }
 }
