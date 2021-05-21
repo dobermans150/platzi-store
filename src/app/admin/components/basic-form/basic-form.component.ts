@@ -17,6 +17,10 @@ export class BasicFormComponent implements OnInit {
   categoryField = new FormControl('categoy-1');
   tagField = new FormControl('');
 
+  agreeField = new FormControl(false);
+  genderField = new FormControl('male');
+  zoneField = new FormControl('');
+
 
   constructor() {}
 

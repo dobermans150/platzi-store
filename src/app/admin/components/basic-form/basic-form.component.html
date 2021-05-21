@@ -29,22 +29,64 @@
   <button (click)="getNameValue()">Value</button>
 </div>
 <div class="">
-    Category: {{ categoryField.value }}
-    <select [formControl] = "categoryField">
-        <option value="category-1">Category 1</option>
-        <option value="category-2">Category 2</option>
-        <option value="category-3">Category 3</option>
-        <option value="category-4">Category 4</option>
-        <option value="category-5">Category 5</option>
-    </select>
-  </div>
-  <div class="">
-    Tags: {{ tagField.value }}
-    <select [formControl] = "tagField" multiple>
-        <option value="tag-1">Category 1</option>
-        <option value="tag-2">Category 2</option>
-        <option value="tag-3">Category 3</option>
-        <option value="tag-4">Category 4</option>
-        <option value="tag-5">Category 5</option>
-    </select>
-  </div>
+  Category: {{ categoryField.value }}
+  <select [formControl]="categoryField">
+    <option value="category-1">Category 1</option>
+    <option value="category-2">Category 2</option>
+    <option value="category-3">Category 3</option>
+    <option value="category-4">Category 4</option>
+    <option value="category-5">Category 5</option>
+  </select>
+</div>
+<div class="">
+  Tags: {{ tagField.value }}
+  <select [formControl]="tagField" multiple>
+    <option value="tag-1">Category 1</option>
+    <option value="tag-2">Category 2</option>
+    <option value="tag-3">Category 3</option>
+    <option value="tag-4">Category 4</option>
+    <option value="tag-5">Category 5</option>
+  </select>
+</div>
+
+<div class="">
+  Agree: {{ agreeField.value }}
+  <input type="checkbox" [formControl]="agreeField" />
+  <button (click)="getNameValue()">Value</button>
+</div>
+
+<div class="">
+  Gender: {{ genderField.value }}
+  <label for="">
+    <input name="gender" value="male" type="radio" [formControl]="genderField" />
+    Male
+  </label>
+
+  <label for="">
+    <input name="gender" value="female" type="radio" [formControl]="genderField" />
+    Female
+  </label>
+
+  <label for="">
+    <input name="gender" value="other" type="radio" [formControl]="genderField" />
+    Other
+  </label>
+</div>
+
+<div class="">
+  Zone: {{ zoneField.value }}
+  <label for="">
+    <input name="zone" value="zone-1" type="radio" [formControl]="zoneField" />
+    Zone 1
+  </label>
+
+  <label for="">
+    <input name="zone" value="zone-2" type="radio" [formControl]="zoneField" />
+    Zone 2
+  </label>
+
+  <label for="">
+    <input name="zone" value="zone-3" type="radio" [formControl]="zoneField" />
+    Zone 3
+  </label>
+</div>
