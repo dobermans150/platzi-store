@@ -6,7 +6,7 @@ import { ProductDetailRoutingModule } from './product-detail-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [ProductDetailComponent],
+  declarations: [],
   imports: [CommonModule, ProductDetailRoutingModule, SharedModule],
 })
 export class ProductDetailModule {}
