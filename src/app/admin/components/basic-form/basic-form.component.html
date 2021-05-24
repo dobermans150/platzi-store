@@ -1,123 +1,140 @@
-<div class="">
-  Name: {{ nameField.valid }}
-  <input
-    [class.is-valid]="isNameFieldValid"
-    [class.is-invalid]="isNameFieldInvalid"
-    type="text"
-    [formControl]="nameField"
-  />
-  <button [disabled]="nameField.invalid" (click)="getNameValue()">Value</button>
-</div>
-
-<div class="messages" [class.active]="isNameFieldInvalid">
-  <div *ngIf="nameField.hasError('required') && nameField.touched">
-    <strong>Este campo es requerido</strong>
+<form [formGroup]="form" (ngSubmit)="save($event)">
+  <div class="">
+    Name: {{ nameField.valid }}
+    <input
+      [class.is-valid]="isNameFieldValid"
+      [class.is-invalid]="isNameFieldInvalid"
+      type="text"
+      formControlName="name"
+    />
+    <button [disabled]="nameField.invalid" (click)="getNameValue()">
+      Value
+    </button>
   </div>
 
-  <div *ngIf="nameField.hasError('maxlength') && nameField.dirty">
-    <strong>Debe tener un maximo de 10 caracteres</strong>
+  <div class="messages" [class.active]="isNameFieldInvalid">
+    <div *ngIf="nameField.hasError('required') && nameField.touched">
+      <strong>Este campo es requerido</strong>
+    </div>
+
+    <div *ngIf="nameField.hasError('maxlength') && nameField.dirty">
+      <strong>Debe tener un maximo de 10 caracteres</strong>
+    </div>
   </div>
-</div>
 
-<div class="">
-  Email: {{ emailField.value }}
-  <input type="email" [formControl]="emailField" />
-  <button (click)="getNameValue()">Value</button>
-</div>
-<div class="">
-  Phone: {{ phoneField.value }}
-  <input type="tel" [formControl]="phoneField" />
-  <button (click)="getNameValue()">Value</button>
-</div>
-<div class="">
-  Color: {{ colorField.value }}
-  <input type="color" [formControl]="colorField" />
-  <button (click)="getNameValue()">Value</button>
-</div>
-<div class="">
-  Date: {{ dateField.value }}
-  <input type="date" [formControl]="dateField" />
-  <button (click)="getNameValue()">Value</button>
-</div>
-<div class="">
-  Phone: {{ numberField.value }}
-  <input type="number" [formControl]="numberField" />
-  <button (click)="getNameValue()">Value</button>
-</div>
-<div class="">
-  Category: {{ categoryField.value }}
-  <select [formControl]="categoryField">
-    <option value="category-1">Category 1</option>
-    <option value="category-2">Category 2</option>
-    <option value="category-3">Category 3</option>
-    <option value="category-4">Category 4</option>
-    <option value="category-5">Category 5</option>
-  </select>
-</div>
-<div class="">
-  Tags: {{ tagField.value }}
-  <select [formControl]="tagField" multiple>
-    <option value="tag-1">Category 1</option>
-    <option value="tag-2">Category 2</option>
-    <option value="tag-3">Category 3</option>
-    <option value="tag-4">Category 4</option>
-    <option value="tag-5">Category 5</option>
-  </select>
-</div>
+  <div class="">
+    Email: {{ emailField.value }}
+    <input type="email" [formControl]="emailField" />
+  </div>
+  <div class="">
+    Phone: {{ phoneField.value }}
+    <input type="tel" [formControl]="phoneField" />
+  </div>
+  <div class="">
+    Color: {{ colorField.value }}
+    <input type="color" [formControl]="colorField" />
+  </div>
+  <div class="">
+    Date: {{ dateField.value }}
+    <input type="date" [formControl]="dateField" />
+  </div>
+  <div class="">
+    Phone: {{ numberField.value }}
+    <input type="number" [formControl]="numberField" />
+  </div>
+  <div class="">
+    Category: {{ categoryField.value }}
+    <select [formControl]="categoryField">
+      <option value="category-1">Category 1</option>
+      <option value="category-2">Category 2</option>
+      <option value="category-3">Category 3</option>
+      <option value="category-4">Category 4</option>
+      <option value="category-5">Category 5</option>
+    </select>
+  </div>
+  <div class="">
+    Tags: {{ tagField.value }}
+    <select [formControl]="tagField" multiple>
+      <option value="tag-1">Category 1</option>
+      <option value="tag-2">Category 2</option>
+      <option value="tag-3">Category 3</option>
+      <option value="tag-4">Category 4</option>
+      <option value="tag-5">Category 5</option>
+    </select>
+  </div>
 
-<div class="">
-  Agree: {{ agreeField.value }}
-  <input type="checkbox" [formControl]="agreeField" />
-  <button (click)="getNameValue()">Value</button>
-</div>
+  <div class="">
+    Agree: {{ agreeField.value }}
+    <input type="checkbox" [formControl]="agreeField" />
+  </div>
 
-<div class="">
-  Gender: {{ genderField.value }}
-  <label for="">
-    <input
-      name="gender"
-      value="male"
-      type="radio"
-      [formControl]="genderField"
-    />
-    Male
-  </label>
+  <div class="">
+    Gender: {{ genderField.value }}
+    <label for="">
+      <input
+        name="gender"
+        value="male"
+        type="radio"
+        [formControl]="genderField"
+      />
+      Male
+    </label>
 
-  <label for="">
-    <input
-      name="gender"
-      value="female"
-      type="radio"
-      [formControl]="genderField"
-    />
-    Female
-  </label>
+    <label for="">
+      <input
+        name="gender"
+        value="female"
+        type="radio"
+        [formControl]="genderField"
+      />
+      Female
+    </label>
 
-  <label for="">
-    <input
-      name="gender"
-      value="other"
-      type="radio"
-      [formControl]="genderField"
-    />
-    Other
-  </label>
-</div>
+    <label for="">
+      <input
+        name="gender"
+        value="other"
+        type="radio"
+        [formControl]="genderField"
+      />
+      Other
+    </label>
+  </div>
 
-<div class="">
-  Zone: {{ zoneField.value }}
-  <label for="">
-    <input name="zone" value="zone-1" type="radio" [formControl]="zoneField" />
-    Zone 1
-  </label>
+  <div class="">
+    Zone: {{ zoneField.value }}
+    <label for="">
+      <input
+        name="zone"
+        value="zone-1"
+        type="radio"
+        [formControl]="zoneField"
+      />
+      Zone 1
+    </label>
 
-  <label for="">
-    <input name="zone" value="zone-2" type="radio" [formControl]="zoneField" />
-    Zone 2
-  </label>
+    <label for="">
+      <input
+        name="zone"
+        value="zone-2"
+        type="radio"
+        [formControl]="zoneField"
+      />
+      Zone 2
+    </label>
 
-  <label for="">
-    <input name="zone" value="zone-3" type="radio" [formControl]="zoneField" />
-    Zone 3
-  </label>
-</div>
+    <label for="">
+      <input
+        name="zone"
+        value="zone-3"
+        type="radio"
+        [formControl]="zoneField"
+      />
+      Zone 3
+    </label>
+  </div>
+
+  <div>
+    <button [disabled]="form.invalid" type="submit">Enviar</button>
+  </div>
+</form>
