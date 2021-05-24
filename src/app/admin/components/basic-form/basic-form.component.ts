@@ -4,6 +4,7 @@ import {
   Validators,
   FormGroup,
   AbstractControl,
+  FormBuilder,
 } from '@angular/forms';
 
 @Component({
@@ -12,25 +13,34 @@ import {
   styleUrls: ['./basic-form.component.scss'],
 })
 export class BasicFormComponent implements OnInit {
-  form = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-    email: new FormControl(''),
-    phone: new FormControl(''),
-    color: new FormControl('#00000'),
-    date: new FormControl(''),
-    number: new FormControl(''),
-    category: new FormControl('categoy-1'),
-    tag: new FormControl(''),
-    agree: new FormControl(false),
-    gender: new FormControl('male'),
-    zone: new FormControl(''),
-  });
-
-  constructor() {}
+  form: FormGroup;
+  constructor(private formBuilder: FormBuilder) {
+    this.buildFor();
+  }
 
   ngOnInit(): void {
     this.nameField.valueChanges.subscribe((value) => {
       console.log(value);
+    });
+
+    this.form.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
+  }
+
+  private buildFor(): void {
+    this.form = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.maxLength(10)]],
+      email: ['', Validators.required],
+      phone: [''],
+      color: ['#00000'],
+      date: [''],
+      number: [''],
+      category: ['categoy-1'],
+      tag: ['categoy-1'],
+      agree: [false],
+      gender: ['male'],
+      zone: [''],
     });
   }
 
@@ -39,7 +49,11 @@ export class BasicFormComponent implements OnInit {
   }
 
   save(event): void {
-    console.log(this.form.value);
+    if (this.form.valid) {
+      console.log(this.form.value);
+    } else {
+      this.form.markAllAsTouched();
+    }
   }
 
   get isNameFieldValid(): Validators {
