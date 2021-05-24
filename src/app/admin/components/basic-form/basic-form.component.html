@@ -1,8 +1,24 @@
 <div class="">
-  Name: {{ nameField.value }}
-  <input type="text" [formControl]="nameField" />
-  <button (click)="getNameValue()">Value</button>
+  Name: {{ nameField.valid }}
+  <input
+    [class.is-valid]="isNameFieldValid"
+    [class.is-invalid]="isNameFieldInvalid"
+    type="text"
+    [formControl]="nameField"
+  />
+  <button [disabled]="nameField.invalid" (click)="getNameValue()">Value</button>
 </div>
+
+<div class="messages" [class.active]="isNameFieldInvalid">
+  <div *ngIf="nameField.hasError('required') && nameField.touched">
+    <strong>Este campo es requerido</strong>
+  </div>
+
+  <div *ngIf="nameField.hasError('maxlength') && nameField.dirty">
+    <strong>Debe tener un maximo de 10 caracteres</strong>
+  </div>
+</div>
+
 <div class="">
   Email: {{ emailField.value }}
   <input type="email" [formControl]="emailField" />
@@ -58,17 +74,32 @@
 <div class="">
   Gender: {{ genderField.value }}
   <label for="">
-    <input name="gender" value="male" type="radio" [formControl]="genderField" />
+    <input
+      name="gender"
+      value="male"
+      type="radio"
+      [formControl]="genderField"
+    />
     Male
   </label>
 
   <label for="">
-    <input name="gender" value="female" type="radio" [formControl]="genderField" />
+    <input
+      name="gender"
+      value="female"
+      type="radio"
+      [formControl]="genderField"
+    />
     Female
   </label>
 
   <label for="">
-    <input name="gender" value="other" type="radio" [formControl]="genderField" />
+    <input
+      name="gender"
+      value="other"
+      type="radio"
+      [formControl]="genderField"
+    />
     Other
   </label>
 </div>
