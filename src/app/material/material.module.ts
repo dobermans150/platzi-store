@@ -18,6 +18,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -40,6 +41,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatMenuModule,
     MatStepperModule,
     MatChipsModule,
+    MatCheckboxModule,
   ],
   exports: [
     MatButtonModule,
@@ -59,6 +61,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatMenuModule,
     MatStepperModule,
     MatChipsModule,
+    MatCheckboxModule,
   ],
 })
 export class MaterialModule {}

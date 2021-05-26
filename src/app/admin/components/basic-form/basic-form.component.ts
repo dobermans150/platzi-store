@@ -48,7 +48,7 @@ export class BasicFormComponent implements OnInit {
         ],
       }),
       email: ['', [Validators.required, Validators.email]],
-      phone: [''],
+      phone: ['', [Validators.required]],
       color: ['#00000'],
       date: [''],
       number: [
@@ -56,7 +56,7 @@ export class BasicFormComponent implements OnInit {
         [Validators.required, Validators.min(18), Validators.max(100)],
       ],
       category: ['categoy-1'],
-      tag: ['categoy-1'],
+      tag: [],
       agree: [false, [Validators.requiredTrue]],
       gender: ['male'],
       zone: [''],
