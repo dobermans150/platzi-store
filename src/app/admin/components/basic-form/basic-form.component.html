@@ -1,47 +1,118 @@
 <form [formGroup]="form" (ngSubmit)="save($event)">
-  <div class="">
-    Name: {{ nameField.valid }}
-    <input
-      [class.is-valid]="isNameFieldValid"
-      [class.is-invalid]="isNameFieldInvalid"
-      type="text"
-      formControlName="name"
-    />
-    <button [disabled]="nameField.invalid" (click)="getNameValue()">
-      Value
-    </button>
-  </div>
+  <!-- Full name -->
 
-  <div class="messages" [class.active]="isNameFieldInvalid">
-    <div *ngIf="nameField.hasError('required') && nameField.touched">
-      <strong>Este campo es requerido</strong>
+  <div formGroupName="fullName">
+    <!-- Name -->
+    <div class="">
+      Name: {{ nameField.valid }}
+      <input
+        [class.is-valid]="isNameFieldValid"
+        [class.is-invalid]="isNameFieldInvalid"
+        type="text"
+        formControlName="name"
+      />
+      <button [disabled]="nameField.invalid" (click)="getNameValue($event)">
+        Value
+      </button>
     </div>
 
-    <div *ngIf="nameField.hasError('maxlength') && nameField.dirty">
-      <strong>Debe tener un maximo de 10 caracteres</strong>
+    <div class="messages" [class.active]="nameField.touched">
+      <div *ngIf="nameField.hasError('required')">
+        <strong>Este campo es requerido</strong>
+      </div>
+
+      <div *ngIf="nameField.hasError('maxlength') && nameField.dirty">
+        <strong>Debe tener un maximo de 10 caracteres</strong>
+      </div>
+
+      <div *ngIf="nameField.hasError('pattern') && nameField.dirty">
+        <strong>Ingrese un nombre valido</strong>
+      </div>
+    </div>
+
+    <!-- LastName -->
+    <div class="">
+      Last: {{ lastNameField.valid }}
+      <input
+        [class.is-valid]="lastNameField.valid && lastNameField.touched"
+        [class.is-invalid]="lastNameField.invalid && lastNameField.touched"
+        type="text"
+        formControlName="last"
+      />
+    </div>
+
+    <div class="messages" [class.active]="lastNameField.touched">
+      <div *ngIf="lastNameField.hasError('required')">
+        <strong>Este campo es requerido</strong>
+      </div>
+
+      <div *ngIf="lastNameField.hasError('maxlength') && lastNameField.dirty">
+        <strong>Debe tener un maximo de 10 caracteres</strong>
+      </div>
+
+      <div *ngIf="lastNameField.hasError('pattern') && lastNameField.dirty">
+        <strong>Ingrese un apellido valido</strong>
+      </div>
     </div>
   </div>
 
+  <!-- Email -->
   <div class="">
     Email: {{ emailField.value }}
     <input type="email" [formControl]="emailField" />
   </div>
+  <div
+    class="messages"
+    [class.active]="emailField.touched && emailField.invalid"
+  >
+    <div *ngIf="emailField.hasError('required')">
+      <strong>Este campo es requerido</strong>
+    </div>
+    <div *ngIf="emailField.hasError('email')">
+      <strong>Esto no es un email valido</strong>
+    </div>
+  </div>
+
+  <!-- Phone -->
   <div class="">
     Phone: {{ phoneField.value }}
     <input type="tel" [formControl]="phoneField" />
   </div>
+
+  <!-- Color -->
   <div class="">
     Color: {{ colorField.value }}
     <input type="color" [formControl]="colorField" />
   </div>
+
+  <!-- Date -->
   <div class="">
     Date: {{ dateField.value }}
     <input type="date" [formControl]="dateField" />
   </div>
+
+  <!-- Number -->
   <div class="">
     Phone: {{ numberField.value }}
     <input type="number" [formControl]="numberField" />
   </div>
+
+  <div
+    class="messages"
+    [class.active]="numberField.touched && numberField.invalid"
+  >
+    <div *ngIf="numberField.hasError('required')">
+      <strong>Este campo es requerido</strong>
+    </div>
+    <div *ngIf="numberField.hasError('min')">
+      <strong>Debe ser mayor de edad</strong>
+    </div>
+    <div *ngIf="numberField.hasError('max')">
+      <strong>debe ser menor a 100 años</strong>
+    </div>
+  </div>
+
+  <!-- Category -->
   <div class="">
     Category: {{ categoryField.value }}
     <select [formControl]="categoryField">
@@ -52,6 +123,8 @@
       <option value="category-5">Category 5</option>
     </select>
   </div>
+
+  <!-- tag -->
   <div class="">
     Tags: {{ tagField.value }}
     <select [formControl]="tagField" multiple>
@@ -63,11 +136,13 @@
     </select>
   </div>
 
+  <!-- Agree -->
   <div class="">
     Agree: {{ agreeField.value }}
     <input type="checkbox" [formControl]="agreeField" />
   </div>
 
+  <!-- Gender -->
   <div class="">
     Gender: {{ genderField.value }}
     <label for="">
@@ -101,6 +176,7 @@
     </label>
   </div>
 
+  <!-- Zone -->
   <div class="">
     Zone: {{ zoneField.value }}
     <label for="">
@@ -134,6 +210,7 @@
     </label>
   </div>
 
+  <!-- Submit -->
   <div>
     <button [disabled]="form.invalid" type="submit">Enviar</button>
   </div>
