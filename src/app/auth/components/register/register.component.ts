@@ -28,18 +28,21 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   private buildForm(): void {
-    this.form = this.formBuilder.group({
-      email: ['', [Validators.required]],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-          MyValidators.validPassword,
+    this.form = this.formBuilder.group(
+      {
+        email: ['', [Validators.required]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(6),
+            MyValidators.validPassword,
+          ],
         ],
-      ],
-      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
-    });
+        confirmPassword: ['', [Validators.required]],
+      },
+      { validators: MyValidators.matchPassword }
+    );
   }
 
   register(event): void {
