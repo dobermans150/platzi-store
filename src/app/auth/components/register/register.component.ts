@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from './../../../core/services/auth/auth.service';
+import { MyValidators } from '../../../utils/validators';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -24,7 +30,15 @@ export class RegisterComponent implements OnInit {
   private buildForm(): void {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          MyValidators.validPassword,
+        ],
+      ],
+      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -32,10 +46,19 @@ export class RegisterComponent implements OnInit {
     event.preventDefault();
     if (this.form.valid) {
       const { email, password } = this.form.value;
-      this.authService.createUser(email, password)
-      .then(() => {
+      this.authService.createUser(email, password).then(() => {
         this.router.navigate(['/auth/login']);
       });
     }
+  }
+
+  get emailField(): AbstractControl {
+    return this.form.get('email');
+  }
+  get passwordField(): AbstractControl {
+    return this.form.get('password');
+  }
+  get confirmPasswordField(): AbstractControl {
+    return this.form.get('confirmPassword');
   }
 }

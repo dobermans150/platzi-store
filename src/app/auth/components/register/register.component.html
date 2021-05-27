@@ -7,32 +7,41 @@
       <div class="row">
         <div class="col-xs">
           <mat-form-field>
-            <input
-              placeholder="email"
-              formControlName="email"
-              matInput
-              type="email"
-            />
+            <mat-label>Email</mat-label>
+            <input placeholder="email" formControlName="email" matInput type="email">
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col-xs">
           <mat-form-field>
-            <input
-              placeholder="password"
-              formControlName="password"
-              matInput
-              type="password"
-            />
+            <mat-label>Password</mat-label>
+            <input placeholder="password" formControlName="password" matInput type="password">
+            <div *ngIf="passwordField.touched && passwordField.invalid">
+              <mat-error *ngIf="passwordField.hasError('invalid_password')">
+                Debe tener un numero
+              </mat-error>
+            </div>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input placeholder="password" formControlName="confirmPassword" matInput type="password">
+            <div *ngIf="confirmPasswordField.touched && form.errors">
+              <mat-error *ngIf="form.hasError('match_password')">
+                No hace match
+              </mat-error>
+            </div>
           </mat-form-field>
         </div>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button [disabled]="form.invalid" mat-raised-button type="submit">
-        Registro
-      </button>
+      <button [disabled]="form.invalid" mat-raised-button type="submit">Registro</button>
     </mat-card-actions>
   </mat-card>
+
 </form>
