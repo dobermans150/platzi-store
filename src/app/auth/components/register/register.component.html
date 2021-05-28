@@ -4,19 +4,33 @@
       <mat-card-title>Registro</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+
+      <!-- Confirm email -->
       <div class="row">
         <div class="col-xs">
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input placeholder="email" formControlName="email" matInput type="email">
+            <input
+              placeholder="email"
+              formControlName="email"
+              matInput
+              type="email"
+            />
           </mat-form-field>
         </div>
       </div>
+
+      <!-- Password -->
       <div class="row">
         <div class="col-xs">
           <mat-form-field>
             <mat-label>Password</mat-label>
-            <input placeholder="password" formControlName="password" matInput type="password">
+            <input
+              placeholder="password"
+              formControlName="password"
+              matInput
+              type="password"
+            />
             <div *ngIf="passwordField.touched && passwordField.invalid">
               <mat-error *ngIf="passwordField.hasError('invalid_password')">
                 Debe tener un numero
@@ -28,11 +42,18 @@
           </mat-form-field>
         </div>
       </div>
+
+      <!-- Confirm password -->
       <div class="row">
         <div class="col-xs">
           <mat-form-field>
             <mat-label>Confirm Password</mat-label>
-            <input placeholder="password" formControlName="confirmPassword" matInput type="password">
+            <input
+              placeholder="password"
+              formControlName="confirmPassword"
+              matInput
+              type="password"
+            />
             <div *ngIf="confirmPasswordField.dirty && form.errors">
               <mat-error *ngIf="form.hasError('match_password')">
                 No hace match
@@ -43,8 +64,9 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button [disabled]="form.invalid" mat-raised-button type="submit">Registro</button>
+      <button [disabled]="form.invalid" mat-raised-button type="submit">
+        Registro
+      </button>
     </mat-card-actions>
   </mat-card>
-
 </form>

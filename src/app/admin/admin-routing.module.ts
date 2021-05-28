@@ -10,7 +10,6 @@ import { FormProductComponent } from './components/form-product/form-product.com
 import { FormProductEditComponent } from './components/form-product-edit/form-product-edit.component';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -47,8 +46,15 @@ const routes: Routes = [
       },
       {
         path: 'basic',
-        component: BasicFormComponent
-      }
+        component: BasicFormComponent,
+      },
+      {
+        path: 'categories',
+        loadChildren: () =>
+          import('./categories/categories.module').then(
+            (m) => m.CategoriesModule
+          ),
+      },
     ],
   },
 ];

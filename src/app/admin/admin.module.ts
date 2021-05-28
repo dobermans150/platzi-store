@@ -15,7 +15,6 @@ import { FormProductComponent } from './components/form-product/form-product.com
 import { FormProductEditComponent } from './components/form-product-edit/form-product-edit.component';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
 
-
 @NgModule({
   declarations: [
     ProductFormComponent,
